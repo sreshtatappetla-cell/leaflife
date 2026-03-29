@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeafAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>LeafLife</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/analyze">Analyze</a>
+        <a href="/storage">Storage</a>
+        <a href="/tips">Tips</a>
+        <a href="/about">About</a>
+    </div>
+</nav>
+
+<!-- HERO IMAGE SLIDER -->
+<section class="hero-full">
+    <img src="{{ url_for('static', filename='images/spinach.jpg') }}" class="hero-slide">
+    <img src="{{ url_for('static', filename='images/lettuce.jpg') }}" class="hero-slide">
+    <img src="{{ url_for('static', filename='images/kale.jpg') }}" class="hero-slide">
+</section>
+
+<!-- CENTER TEXT -->
+<div class="center-info">
+    🌿 AI Analysis | 📊 Freshness % | ⏳ Shelf Life Prediction | 🧊 Storage Tips
+</div>
+
+<!-- CENTERED EXTRA IMAGES -->
+<div class="image-section">
+    <img src="{{ url_for('static', filename='images/leaf1.jpg') }}">
+    <img src="{{ url_for('static', filename='images/leaf2.jpg') }}">
+</div>
+
+<!-- CLICKABLE FEATURES -->
+<section class="features">
+
+    <div class="feature-box" onclick="openPopup('analysis')">
+        <h3>Freshness Analysis</h3>
+        <p>Click!!</p>
+    </div>
+
+    <div class="feature-box" onclick="openPopup('percentage')">
+        <h3>Freshness %</h3>
+        <p>Click!!</p>
+    </div>
+
+    <div class="feature-box" onclick="openPopup('shelf')">
+        <h3>Shelf Life</h3>
+        <p>Click!!</p>
+    </div>
+
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <div id="popupText"></div>
+    </div>
+</div>
+
+<footer>
+    <p>LeafLife</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function openPopup(type) {
+    const popup = document.getElementById("popup");
+    const text = document.getElementById("popupText");
+
+    if(type === "analysis"){
+        text.innerHTML = "🌿 <h3>Freshness Analysis</h3><p>AI detects freshness level of leafy vegetables.</p>";
+    }
+    else if(type === "percentage"){
+        text.innerHTML = "📊 <h3>Freshness Percentage</h3><p>Shows how fresh your vegetable is.</p>";
+    }
+    else if(type === "shelf"){
+        text.innerHTML = "⏳ <h3>Shelf Life</h3><p>Predicts how long it will last.</p>";
+    }
+
+    popup.style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>

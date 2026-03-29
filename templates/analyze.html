@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analyze Leaf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>LeafAI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/analyze">Analyze</a>
+        <a href="/storage">Storage</a>
+        <a href="/tips">Tips</a>
+        <a href="/about">About</a>
+    </div>
+</nav>
+
+<section class="page-container">
+
+<h1 class="page-title">🌿 Leaf Analysis Dashboard</h1>
+
+<div class="analyze-container">
+
+    <!-- Upload -->
+    <div class="card upload-card">
+        <h3>Upload Leaf Image</h3>
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+            <input type="file" name="leaf_image" required>
+            <br><br>
+            <button class="main-btn">Analyze</button>
+        </form>
+    </div>
+
+    {% if result %}
+    <!-- Result -->
+    <div class="card result-card">
+
+        <h3>Analysis Result</h3>
+
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" class="uploaded-img">
+
+        <p><b>Status:</b> {{ result.label }}</p>
+        <p><b>Shelf Life:</b> {{ result.shelf_life }}</p>
+        <p><b>Freshness:</b> {{ result.percentage }}%</p>
+
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ result.percentage }}%">
+                {{ result.percentage }}%
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</section>
+
+</body>
+</html>

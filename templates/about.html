@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Leafy Vegetables</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h2>LeafAI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/analyze">Analyze</a>
+        <a href="/storage">Storage</a>
+        <a href="/tips">Tips</a>
+        <a href="/about">About</a>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<section class="page-container">
+
+    <h1 class="page-title">🌿 About Leafy Vegetables</h1>
+
+    <!-- Intro -->
+    <div class="card">
+        <p>
+            Leafy vegetables are rich in essential nutrients, vitamins, and antioxidants.
+            They help boost immunity, improve digestion, and support overall health.
+            Including leafy greens in your diet can significantly improve your well-being.
+        </p>
+    </div>
+
+    <!-- Images -->
+    <div class="about-images">
+        <img src="{{ url_for('static', filename='images/spinach.jpg') }}">
+        <img src="{{ url_for('static', filename='images/lettuce.jpg') }}">
+        <img src="{{ url_for('static', filename='images/kale.jpg') }}">
+    </div>
+
+    <!-- Fun Facts -->
+    <div class="card">
+        <h3>🌟 Fun Facts</h3>
+        <ul>
+            <li>Spinach was made famous by Popeye for strength.</li>
+            <li>Lettuce was first cultivated in ancient Egypt.</li>
+            <li>Kale contains more Vitamin C than oranges.</li>
+            <li>Leafy greens naturally detoxify the body.</li>
+            <li>Some greens like arugula have a spicy taste.</li>
+        </ul>
+    </div>
+
+    <!-- Health Benefits -->
+    <div class="card">
+        <h3>💚 Health Benefits</h3>
+        <ul>
+            <li>Rich in fiber for better digestion</li>
+            <li>High in vitamins A, C, and K</li>
+            <li>Supports heart health</li>
+            <li>Helps in weight management</li>
+            <li>Contains antioxidants that fight diseases</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Leafy Freshness</p>
+</footer>
+
+</body>
+</html>

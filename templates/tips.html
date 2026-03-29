@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freshness Tips</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h2>LeafAI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/analyze">Analyze</a>
+        <a href="/storage">Storage</a>
+        <a href="/tips">Tips</a>
+        <a href="/about">About</a>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<section class="page-container">
+
+    <h1 class="page-title">🌿 Freshness Tips</h1>
+
+    <!-- Buttons -->
+    <div class="tip-buttons">
+        <button onclick="showTips('fresh')" class="main-btn">Fresh</button>
+        <button onclick="showTips('moderate')" class="main-btn">Moderate</button>
+        <button onclick="showTips('spoiled')" class="main-btn">Spoiled</button>
+    </div>
+
+    <!-- Tips Display -->
+    <div id="tipsDisplay" class="card tips-card">
+        <p>Select a category to view tips.</p>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Leafy Freshness</p>
+</footer>
+
+<script>
+const tips = {
+    fresh: [
+        "Store immediately in refrigerator",
+        "Wrap in paper towel to absorb moisture",
+        "Keep in vegetable crisper drawer",
+        "Do not wash before storing",
+        "Maintain temperature between 1–4°C"
+    ],
+    moderate: [
+        "Use within 2–3 days",
+        "Remove damaged or yellow leaves",
+        "Store in breathable bags",
+        "Keep away from ethylene-producing fruits",
+        "Prefer cooking instead of raw consumption"
+    ],
+    spoiled: [
+        "Use immediately if possible",
+        "Remove rotten portions before use",
+        "Avoid long-term storage",
+        "Use in cooked dishes like soups",
+        "Discard if foul smell is present"
+    ]
+};
+
+function showTips(type) {
+    const display = document.getElementById("tipsDisplay");
+
+    display.innerHTML = `
+        <h3>${type.toUpperCase()} TIPS</h3>
+        <ul>
+            ${tips[type].map(tip => `<li>${tip}</li>`).join("")}
+        </ul>
+    `;
+}
+</script>
+
+</body>
+</html>
